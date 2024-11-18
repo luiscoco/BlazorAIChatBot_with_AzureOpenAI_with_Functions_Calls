@@ -1,4 +1,4 @@
-# Building a Blazor Web App with AI ChatBot Integration Using .NET 9 and OpenAI GPT-4o LLM Model
+# Integrating AI ChatBot with Blazor Web App Using .NET 9 and OpenAI GPT-4o Model
 
 ## 1. Get API Key from OpenAI web page
 

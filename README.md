@@ -143,7 +143,7 @@ We verify the whole **Program.cs** file
 using Azure;
 using Azure.AI.OpenAI;
 using Azure.Identity;
-using BlazorAIChatBotOllama.Components;
+using BlazorAIChatBotOpenAI.Components;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
@@ -230,7 +230,7 @@ using Microsoft.Extensions.AI;
 using System.Security.Claims;
 using System.Text;
 
-namespace BlazorAIChatBotOllama.Components.Chatbot;
+namespace BlazorAIChatBotOpenAI.Components.Chatbot;
 
 public class ChatState
 {
@@ -285,7 +285,7 @@ using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorAIChatBotOllama.Components.Chatbot;
+namespace BlazorAIChatBotOpenAI.Components.Chatbot;
 
 public static partial class MessageProcessor
 {
@@ -351,7 +351,7 @@ And also we create the Chatbot razor component
 ```razor
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @using Microsoft.AspNetCore.Components.Authorization
-@using BlazorAIChatBotOllama.Components.Chatbot
+@using BlazorAIChatBotOpenAI.Components.Chatbot
 @using Microsoft.Extensions.AI
 @inject IJSRuntime JS
 @inject NavigationManager Nav
@@ -453,7 +453,7 @@ We have to invoke the Show Chatbot button from the home page, for this purpose w
 ```razor
 @page "/"
 
-@using BlazorAIChatBotOllama.Components.Chatbot
+@using BlazorAIChatBotOpenAI.Components.Chatbot
 
 <PageTitle>Home</PageTitle>
 

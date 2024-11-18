@@ -34,8 +34,9 @@ We select the Blazor Web App project template
 
 ![image](https://github.com/user-attachments/assets/91f9c737-5891-403d-8178-7e8fd100a8af)
 
-We input the project name and location
+We input the **project name and location** and we press the Next button
 
+![image](https://github.com/user-attachments/assets/abda3cf7-abe9-40f4-a6bb-2f50886ea674)
 
 We select the **.NET 9** framework and leave the other options with the default values, and we press the Create button
 

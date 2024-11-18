@@ -386,8 +386,11 @@ And also we create the Chatbot razor component
 ```razor
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @using Microsoft.AspNetCore.Components.Authorization
-@using BlazorAIChatBotOpenAI.Components.Chatbot
+@using BlazorAIChatBot_with_AzureOpenAI.Components.Chatbot
 @using Microsoft.Extensions.AI
+@using OpenAI.Chat
+@using System.ComponentModel
+
 @inject IJSRuntime JS
 @inject NavigationManager Nav
 
@@ -436,11 +439,12 @@ And also we create the Chatbot razor component
     string? messageToSend;
     bool thinking;
     IJSObjectReference? jsModule;
+    ChatTool getAgeTool; // Tool definition for GetAge
 
     protected override async Task OnInitializedAsync()
     {
-        IChatClient chatClient = ServiceProvider.GetService<IChatClient>();
-        List<ChatMessage> chatMessages = ServiceProvider.GetService<List<ChatMessage>>();
+        IChatClient? chatClient = ServiceProvider.GetService<IChatClient>();
+        List<Microsoft.Extensions.AI.ChatMessage>? chatMessages = ServiceProvider.GetService<List<Microsoft.Extensions.AI.ChatMessage>>();
         if (chatClient is not null)
         {
             AuthenticationState auth = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -460,7 +464,18 @@ And also we create the Chatbot razor component
         if (chatState is not null && !string.IsNullOrEmpty(messageCopy))
         {
             thinking = true;
-            await chatState.AddUserMessageAsync(messageCopy, onMessageAdded: StateHasChanged);
+
+            ChatOptions chatOptions = new()
+            {
+               Tools = 
+               [
+                   AIFunctionFactory.Create(GetAge), 
+                   AIFunctionFactory.Create(GetWeather)
+                   ]
+            };
+            
+            await chatState.AddUserMessageAsync(messageCopy, chatOptions, onMessageAdded: StateHasChanged);
+            
             thinking = false;
         }
     }
@@ -476,6 +491,16 @@ And also we create the Chatbot razor component
             await jsModule.InvokeVoidAsync("submitOnEnter", textbox);
         }
     }
+
+    // GetAge function definition
+    [Description("Provides Luis Coco age")]
+    static string GetAge()
+    {
+        return "Luis Coco is 50 years old";
+    }
+
+    [Description("Gets the weather")]
+    static string GetWeather() => Random.Shared.NextDouble() > 0.5 ? "It's sunny" : "It's raining";
 }
 ```
 

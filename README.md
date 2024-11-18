@@ -80,7 +80,7 @@ It simplifies the process of accessing Azure resources by abstracting away the c
 
 It supports **Azure Active Directory (Azure AD)** authentication and also integrates with **Managed Identity** for Azure services
 
-**Microsoft.Extensions.AI" Version**: This is a part of Microsoft's dependency injection and configuration system extensions
+**Microsoft.Extensions.AI**: This is a part of Microsoft's dependency injection and configuration system extensions
 
 It likely includes integrations for incorporating AI capabilities (like accessing AI models) into .NET applications using standard extension patterns
 

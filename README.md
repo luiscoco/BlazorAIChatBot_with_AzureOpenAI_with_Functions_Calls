@@ -64,11 +64,29 @@ It simplifies the process of accessing Azure resources by abstracting away the c
 
 It supports **Azure Active Directory (Azure AD)** authentication and also integrates with **Managed Identity** for Azure services
 
-**Microsoft.Extensions.AI" Version**:
+**Microsoft.Extensions.AI" Version**: This is a part of Microsoft's dependency injection and configuration system extensions
 
-**Microsoft.Extensions.AI.OpenAI**:
+It likely includes integrations for incorporating AI capabilities (like accessing AI models) into .NET applications using standard extension patterns
 
-**System.ComponentModel.Annotations**:
+Its purpose is to make integrating AI tools easier in modern .NET applications
+
+**Microsoft.Extensions.AI.OpenAI**: This library builds upon Microsoft.Extensions.AI by specifically providing support for **OpenAI models**
+
+It is intended for developers using Microsoft's extensions framework to seamlessly **include OpenAI capabilities in their .NET applications**
+
+It ensures smooth integration of OpenAI's language models with dependency injection, configuration, and scalability features
+
+**System.ComponentModel.Annotations**: This library is part of the **.NET Framework** and provides a way to define and enforce **metadata** for classes and properties using **attributes**
+
+It is commonly used for: 
+
+**Validation**: Apply attributes like [Required], [StringLength], and [Range] to **validate user input or object properties**
+
+**Data Annotations**: Add metadata for describing and controlling **how data is displayed**, e.g., [Display(Name = "Username")].
+
+**Model Binding**: Used in frameworks like ASP.NET Core to support **automatic model validation and binding**
+
+This library is a cornerstone of model validation in .NET applications, especially in web development
 
 ## 4. Modify the middleware(Program.cs)
 

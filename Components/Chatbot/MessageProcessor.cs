@@ -3,7 +3,7 @@ using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorAIChatBotOllama.Components.Chatbot;
+namespace BlazorAIChatBotOpenAI.Components.Chatbot;
 
 public static partial class MessageProcessor
 {

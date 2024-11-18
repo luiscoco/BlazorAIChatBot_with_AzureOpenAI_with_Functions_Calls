@@ -3,7 +3,7 @@ using OpenAI.Chat;
 using System.Security.Claims;
 using System.Text;
 
-namespace BlazorAIChatBotOllama.Components.Chatbot;
+namespace BlazorAIChatBotOpenAI.Components.Chatbot;
 
 public class ChatState
 {

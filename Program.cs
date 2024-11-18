@@ -1,7 +1,8 @@
 using Azure;
 using Azure.AI.OpenAI;
 using Azure.Identity;
-using BlazorAIChatBotOllama.Components;
+using BlazorAIChatBot_with_AzureOpenAI.Components;
+using BlazorAIChatBotOpenAI.Components;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;

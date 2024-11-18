@@ -2,7 +2,17 @@
 
 ## 1. (OPTION 1) Get API Key and Service EndPoint from AzureOpenAI web page
 
+Deploy an **Azure OpenAI** Service
 
+![image](https://github.com/user-attachments/assets/632f3683-69d8-42a1-94c4-52145594f23e)
+
+We press the **Model Deployments** menu option and then press the **Manage Deployments** button 
+
+![image](https://github.com/user-attachments/assets/3e8afe38-5e80-46f7-b078-e2a4737da771)
+
+Then we Create a **GTP-4o** deployment in Azure OpenAI Studio
+
+![image](https://github.com/user-attachments/assets/fd2a9b52-2ebe-4c5e-99aa-57a40cb0a563)
 
 ## 1. (OPTION 2) Get API Key from OpenAI web page
 

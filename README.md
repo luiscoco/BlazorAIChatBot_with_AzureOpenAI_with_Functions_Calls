@@ -100,6 +100,25 @@ builder.Services.AddSingleton<ILogger>(static serviceProvider =>
 });
 ```
 
+We register the **Chat Client Service** for Azure OpenAI
+
+```csharp
+builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
+{
+    var endpoint = new Uri("https://myopenaiserviceluis.openai.azure.com/");
+    var credentials = new AzureKeyCredential("");
+    var deploymentName = "gpt-4o";
+
+    IChatClient client = new AzureOpenAIClient(endpoint, credentials).AsChatClient(deploymentName);
+
+    IChatClient chatClient = new ChatClientBuilder()
+        .UseFunctionInvocation()
+        .Use(client);
+
+    return chatClient;
+});
+```
+
 We also have to register the **Chat Messages Service**
 
 ```csharp

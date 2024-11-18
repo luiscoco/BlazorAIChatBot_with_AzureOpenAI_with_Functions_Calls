@@ -2,7 +2,21 @@
 
 ## 1. Get API Key from OpenAI web page
 
-****
+We navigate to **OpenAI** web page and **Login**
+
+![image](https://github.com/user-attachments/assets/fffa655c-b4c5-4664-b0a1-531844ba5e86)
+
+Then we request a new **OpenAI API Key**
+
+We click in **Settings** and then in **API Keys**
+
+![image](https://github.com/user-attachments/assets/68507c4b-430f-4c8d-a7fe-0670756dc7ee)
+
+Then we press on the **+ Create new secret key** button
+
+![image](https://github.com/user-attachments/assets/ec2eb833-2d35-4818-b5f5-c76468109f3b)
+
+
 
 
 ## 2. Create a Blazor Web App (.NET 9)
@@ -44,13 +58,7 @@ builder.Services.AddSingleton<ILogger>(static serviceProvider =>
 });
 ```
 
-Then we register the **Chat Client for OpenAI Service**
-
-```csharp
-
-```
-
-We also have to register the default **Chat Messages Service**
+We also have to register the **Chat Messages Service**
 
 ```csharp
 builder.Services.AddSingleton<List<ChatMessage>>(static serviceProvider =>

@@ -119,6 +119,12 @@ builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
 });
 ```
 
+**IMPORTANT NOTE**: copy the **OpenAI API Key** form Section 1 and paste it in this code line
+
+```csharp
+var credentials = new AzureKeyCredential("API_Key_from_Section_1");
+```
+
 We also have to register the **Chat Messages Service**
 
 ```csharp

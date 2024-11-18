@@ -4,7 +4,7 @@
 
 Deploy an **Azure OpenAI** Service
 
-![image](https://github.com/user-attachments/assets/632f3683-69d8-42a1-94c4-52145594f23e)
+![image](https://github.com/user-attachments/assets/61f68a4b-2d81-42a9-b754-83e3d11e49ac)
 
 We press the **Model Deployments** menu option and then press the **Manage Deployments** button 
 

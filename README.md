@@ -16,11 +16,13 @@ Then we press on the **+ Create new secret key** button
 
 ![image](https://github.com/user-attachments/assets/ec2eb833-2d35-4818-b5f5-c76468109f3b)
 
-We enter the API Key name and press button
+We enter the API Key name and press **Create secret key** button
 
 ![image](https://github.com/user-attachments/assets/c14aec6c-4f1a-4f11-a3e1-24b14956eef3)
 
+We copy the **API Key** value for using in our C# application
 
+![image](https://github.com/user-attachments/assets/0fc7fa17-1c21-4048-b61e-f0465e019e1d)
 
 ## 2. Create a Blazor Web App (.NET 9)
 

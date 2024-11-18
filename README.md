@@ -24,11 +24,11 @@ We select the **.NET 9** framework and leave the other options with the default 
 
 We verify the project folders and files structure
 
-![image](https://github.com/user-attachments/assets/7d0b9b70-7e7d-4fe4-9015-b39da28bfcb8)
+
 
 ## 3. Load the Nuget Packages
 
-![image](https://github.com/user-attachments/assets/718f439b-74a1-492a-b64b-46ffb9d6da14)
+
 
 ## 4. Modify the middleware(Program.cs)
 
@@ -42,25 +42,10 @@ builder.Services.AddSingleton<ILogger>(static serviceProvider =>
 });
 ```
 
-Then we register the **Chat Client for Ollama Service**
+Then we register the **Chat Client for OpenAI Service**
 
 ```csharp
-builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
-{
-    var logger = serviceProvider.GetRequiredService<ILogger>();
 
-    // Set up the Ollama connection string and default model
-    var ollamaCnnString = "http://localhost:11434";
-    var defaultLLM = "phi3:latest"; 
-
-    logger.LogInformation("Ollama connection string: {0}", ollamaCnnString);
-    logger.LogInformation("Default LLM: {0}", defaultLLM);
-
-    // Create the Ollama chat client with the updated connection URI and model name
-    IChatClient chatClient = new OllamaChatClient(new Uri(ollamaCnnString), defaultLLM);
-
-    return chatClient;
-});
 ```
 
 We also have to register the default **Chat Messages Service**
@@ -78,65 +63,7 @@ builder.Services.AddSingleton<List<ChatMessage>>(static serviceProvider =>
 We verify the whole **Program.cs** file
 
 ```csharp
-using BlazorAIChatBotOllama.Components;
-using Microsoft.Extensions.AI;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
-
-builder.Services.AddSingleton<ILogger>(static serviceProvider =>
-{
-    var lf = serviceProvider.GetRequiredService<ILoggerFactory>();
-    return lf.CreateLogger(typeof(Program));
-});
-
-// Register the chat client for Ollama
-builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
-{
-    var logger = serviceProvider.GetRequiredService<ILogger>();
-
-    // Set up the Ollama connection string and default model
-    var ollamaCnnString = "http://localhost:11434";
-    var defaultLLM = "phi3:latest"; 
-
-    logger.LogInformation("Ollama connection string: {0}", ollamaCnnString);
-    logger.LogInformation("Default LLM: {0}", defaultLLM);
-
-    // Create the Ollama chat client with the updated connection URI and model name
-    IChatClient chatClient = new OllamaChatClient(new Uri(ollamaCnnString), defaultLLM);
-
-    return chatClient;
-});
-
-// Register default chat messages
-builder.Services.AddSingleton<List<ChatMessage>>(static serviceProvider =>
-{
-    return new List<ChatMessage>()
-    {
-        new ChatMessage(ChatRole.System, "You are a useful assistant that replies using short and precise sentences.")
-    };
-});
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseAntiforgery();
-app.MapStaticAssets();
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
-
-app.Run();
 ```
 
 ## 5. Add the Chatbot

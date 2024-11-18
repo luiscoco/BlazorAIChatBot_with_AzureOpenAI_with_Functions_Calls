@@ -16,6 +16,9 @@ Then we press on the **+ Create new secret key** button
 
 ![image](https://github.com/user-attachments/assets/ec2eb833-2d35-4818-b5f5-c76468109f3b)
 
+We enter the API Key name and press button
+
+![image](https://github.com/user-attachments/assets/c14aec6c-4f1a-4f11-a3e1-24b14956eef3)
 
 
 

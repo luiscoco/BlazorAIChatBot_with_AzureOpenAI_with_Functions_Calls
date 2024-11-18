@@ -537,7 +537,7 @@ We write the message and press the Send button
 
 In this sample we also integrated with ChatGPT-4o two Functions:
 
-```
+```csharp
 [Description("Provides Luis Coco age")]
 static string GetAge()
 {

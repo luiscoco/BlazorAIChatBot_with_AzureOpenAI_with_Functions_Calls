@@ -50,7 +50,25 @@ We verify the project folders and files structure
 
 ![image](https://github.com/user-attachments/assets/e7719162-e18e-4d75-98a6-7c5138f98bab)
 
+**Azure.AI.OpenAI**: This library is part of the **Azure SDK**, specifically designed to interact with the **OpenAI models hosted on Azure**
 
+It allows developers to leverage OpenAI's advanced **natural language models** (like **GPT**) for generating, understanding, and analyzing text
+
+Common use cases include generating conversational responses, completing text, summarizing content, and more, directly integrated into Azure's cloud infrastructure
+
+**Azure.Identity**: This library provides a unified way to handle **authentication** in Azure services
+
+It includes various credential classes (e.g., **DefaultAzureCredential**, **ClientSecretCredential**) to authenticate applications to Azure services securely
+
+It simplifies the process of accessing Azure resources by abstracting away the complexity of **handling tokens and secrets**
+
+It supports **Azure Active Directory (Azure AD)** authentication and also integrates with **Managed Identity** for Azure services
+
+**Microsoft.Extensions.AI" Version**:
+
+**Microsoft.Extensions.AI.OpenAI**:
+
+**System.ComponentModel.Annotations**:
 
 ## 4. Modify the middleware(Program.cs)
 

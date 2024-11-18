@@ -1,4 +1,4 @@
-# Integrating AI ChatBot with Blazor Web App Using .NET 9 and AzureOpenAI GPT-4o Model
+# Integrating AI ChatBot with Blazor Web App Using .NET 9 AzureOpenAI or OpenAI GPT-4o Model
 
 ## 1. (OPTION 1) Get API Key and Service EndPoint from AzureOpenAI web page
 

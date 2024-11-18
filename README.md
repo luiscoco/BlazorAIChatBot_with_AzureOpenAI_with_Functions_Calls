@@ -106,7 +106,7 @@ This library is a cornerstone of model validation in .NET applications, especial
 
 ### 3.2. (OPTION 2) Load Nuget Packages for OpenAI Service
 
-
+![image](https://github.com/user-attachments/assets/b9f6b439-67f6-4a97-bcb6-efc0fe4ed34f)
 
 ## 4. Modify the middleware(Program.cs)
 
@@ -120,7 +120,7 @@ builder.Services.AddSingleton<ILogger>(static serviceProvider =>
 });
 ```
 
-We register the **Chat Client Service** for Azure OpenAI
+**(OPTION 1)** We register the **Chat Client Service** for **Azure OpenAI**
 
 ```csharp
 builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
@@ -143,6 +143,21 @@ builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
 
 ```csharp
 var credentials = new AzureKeyCredential("API_Key_from_Section_1");
+```
+
+**(OPTION 2)** We register the **Chat Client Service** for **OpenAI**
+
+```csharp
+builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
+{
+    IChatClient client = new OpenAIClient("API_Key_from_Section_1").AsChatClient("gpt-4o");
+
+    IChatClient chatClient = new ChatClientBuilder()
+        .UseFunctionInvocation()
+        .Use(client);
+
+    return chatClient;
+});
 ```
 
 We also have to register the **Chat Messages Service**

@@ -1,44 +1,9 @@
-# Building a Blazor Web App with AI ChatBot Integration Using .NET 9 and the Ollama Phi3 Model
+# Building a Blazor Web App with AI ChatBot Integration Using .NET 9 and OpenAI GPT-4o LLM Model
 
-## 1. Donwload and Install AI Ollama in your laptop
+## 1. Get API Key from OpenAI web page
 
-**https://ollama.com/download**
+****
 
-![image](https://github.com/user-attachments/assets/b89a70a5-a5ff-4f81-83e4-ea352d7d1fd9)
-
-To verify the Ollama installation run these commands:
-
-For downloading the phi3 model:
-
-```
-ollama run phi3
-```
-
-For listing the models:
-
-```
-ollama list
-```
-
-![image](https://github.com/user-attachments/assets/caf096b3-2d59-4534-b943-6685e3f1f3ef)
-
-Verify Ollama is running
-
-```
-curl http://localhost:11434
-```
-
-![image](https://github.com/user-attachments/assets/f54ed356-d5b5-4e97-8652-e5abee40df6b)
-
-Send a request:
-
-```
-curl -X POST http://localhost:11434/v1/completions ^
--H "Content-Type: application/json" ^
--d "{ \"model\": \"phi3:latest\", \"prompt\": \"hello\" }"
-```
-
-![image](https://github.com/user-attachments/assets/fd1abcd5-967a-44f8-adc4-82ed4d784783)
 
 ## 2. Create a Blazor Web App (.NET 9)
 
@@ -52,9 +17,8 @@ We select the Blazor Web App project template
 
 We input the project name and location
 
-![image](https://github.com/user-attachments/assets/9ebec360-f719-4ad9-9591-b9118ba23ec3)
 
-We select the .NET 9 framework and leave the other options with the default values, and we press the Create button
+We select the **.NET 9** framework and leave the other options with the default values, and we press the Create button
 
 ![image](https://github.com/user-attachments/assets/da2e303b-1947-43e9-bef7-0a02dc670f15)
 

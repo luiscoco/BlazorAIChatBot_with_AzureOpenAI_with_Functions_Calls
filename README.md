@@ -24,9 +24,11 @@ We select the **.NET 9** framework and leave the other options with the default 
 
 We verify the project folders and files structure
 
-
+![image](https://github.com/user-attachments/assets/8a18644b-abff-4181-9272-b0e27f0e154d)
 
 ## 3. Load the Nuget Packages
+
+![image](https://github.com/user-attachments/assets/e7719162-e18e-4d75-98a6-7c5138f98bab)
 
 
 
@@ -63,7 +65,71 @@ builder.Services.AddSingleton<List<ChatMessage>>(static serviceProvider =>
 We verify the whole **Program.cs** file
 
 ```csharp
+using Azure;
+using Azure.AI.OpenAI;
+using Azure.Identity;
+using BlazorAIChatBotOllama.Components;
+using Microsoft.Extensions.AI;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
+using OpenAI;
+using OpenAI.Chat;
+using System.ComponentModel;
 
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+builder.Services.AddSingleton<ILogger>(static serviceProvider =>
+{
+    var lf = serviceProvider.GetRequiredService<ILoggerFactory>();
+    return lf.CreateLogger(typeof(Program));
+});
+
+// Register the chat client for Azure OpenAI
+builder.Services.AddSingleton<IChatClient>(static serviceProvider =>
+{
+    var endpoint = new Uri("https://myopenaiserviceluis.openai.azure.com/");
+    var credentials = new AzureKeyCredential("");
+    var deploymentName = "gpt-4o";
+
+    IChatClient client = new AzureOpenAIClient(endpoint, credentials).AsChatClient(deploymentName);
+
+    IChatClient chatClient = new ChatClientBuilder()
+        .UseFunctionInvocation()
+        .Use(client);
+
+    return chatClient;
+});
+
+// Register default chat messages
+builder.Services.AddSingleton<List<Microsoft.Extensions.AI.ChatMessage>>(static serviceProvider =>
+{
+    return new List<Microsoft.Extensions.AI.ChatMessage>()
+    {
+        new Microsoft.Extensions.AI.ChatMessage(ChatRole.System, "You are a useful assistant that replies using short and precise sentences.")
+    };
+});
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseAntiforgery();
+app.MapStaticAssets();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+app.Run();
 ```
 
 ## 5. Add the Chatbot

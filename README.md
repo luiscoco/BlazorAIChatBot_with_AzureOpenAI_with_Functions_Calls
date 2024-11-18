@@ -535,6 +535,22 @@ We write the message and press the Send button
 
 ![image](https://github.com/user-attachments/assets/db4f7c2a-eac2-450a-a761-d650854dd507)
 
+In this sample we also integrated with ChatGPT-4o two Functions:
+
+```
+[Description("Provides Luis Coco age")]
+static string GetAge()
+{
+    return "Luis Coco is 50 years old";
+}
+
+[Description("Gets the weather")]
+static string GetWeather() => Random.Shared.NextDouble() > 0.5 ? "It's sunny" : "It's raining";
+```
+
+We can invoke them from the Chatbot prompt 
+
+![image](https://github.com/user-attachments/assets/32b5f5bb-6628-49a4-a9b4-530430c27ec9)
 
 
 

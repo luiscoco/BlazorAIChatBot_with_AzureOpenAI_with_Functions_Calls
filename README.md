@@ -62,6 +62,8 @@ We verify the project folders and files structure
 
 ## 3. Load the Nuget Packages
 
+### 3.1. (OPTION 1) Load Nuget Packages for AzureOpenAI Service
+
 ![image](https://github.com/user-attachments/assets/e7719162-e18e-4d75-98a6-7c5138f98bab)
 
 **Azure.AI.OpenAI**: This library is part of the **Azure SDK**, specifically designed to interact with the **OpenAI models hosted on Azure**
@@ -101,6 +103,10 @@ It is commonly used for:
 **Model Binding**: Used in frameworks like ASP.NET Core to support **automatic model validation and binding**
 
 This library is a cornerstone of model validation in .NET applications, especially in web development
+
+### 3.2. (OPTION 2) Load Nuget Packages for OpenAI Service
+
+
 
 ## 4. Modify the middleware(Program.cs)
 

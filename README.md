@@ -477,7 +477,8 @@ Welcome to your new app.
 
 We write the message and press the Send button
 
-![image](https://github.com/user-attachments/assets/f365b669-e6e1-48ab-b12b-1526a9c883d4)
+![image](https://github.com/user-attachments/assets/db4f7c2a-eac2-450a-a761-d650854dd507)
+
 
 
 
